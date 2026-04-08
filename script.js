@@ -33,7 +33,7 @@ function renderList(reviewsArray) {
         const card = document.createElement('div');
         card.className = 'review-card';
         card.innerHTML = `
-            <h3>${review.title}</h3>
+            <h3>${review.text}</h3>
             <p>Рейтинг: ${review.value}</p>
             <p>Статус: ${review.status}</p>
             <p>Дата создания: ${review.createdAt}</p>
