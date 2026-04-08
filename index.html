@@ -2,26 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Система учёта отзывов</title>
     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Система учёта отзывов</h1>
+
+    <section>
+        <h2>Создание отзыва</h2>
+        <p>Форма будет реализована в следующих лабораторных работах</p>
+    </section>
+
+    <section id="controls">
+        <h2>Управление отзывами</h2>
+        <div>
+            <button id="btnAll">Показать все отзывы</button>
+            <button id="btnNew">Показать только NEW</button>
+            <button id="btnSort">Сортировать по рейтингу (убыв.)</button>
+            <button id="btnStats">Показать статистику</button>
+        </div>
+        <div id="message"></div>
+    </section>
+
+    <section>
+        <h2>Список отзывов</h2>
+        <div id="list"></div>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="logic.js"></script>
     <script src="script.js"></script>
-<h1>Система учёта отзывов</h1>
-
-<section>
-  <h2>Создание отзыва</h2>
-  <p>Форма будет реализована в следующих лабораторных работах</p>
-</section>
-
-<section>
-  <h2>Список отзывов</h2>
-  <p>Отображение данных будет добавлено позже</p> 
-
-  <div>
-    <button id="btnAll">Показать все записи</button>
-    <button id="btnNew">Показать только NEW</button>
-    <button id="btnStats">Показать статистику</button>
-  </div>
-
-  <pre id="output"></pre>
-</section>
+</body>
+</html>
