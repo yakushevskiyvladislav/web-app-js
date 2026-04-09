@@ -62,4 +62,78 @@ const record2 = {
 };
 console.log("record1 (status: 'new'):", isNew(record1));
 console.log("record2 (status: 'new'):", isNew(record2));
+D1
+const testItems = [
+  {
+    id: 1,
+    title: "Плоховато",
+    value: 2,
+    status: "new",
+    createdAt: "2026-03-01"
+  },
+  {
+    id: 2,
+    title: "отлично",
+    value: 5,
+    status: "new",
+    createdAt: "2026-03-02"
+  },
+  {
+    id: 3,
+    title: «Хорошее место",
+    value: 5,
+    status: "old",
+    createdAt: "2026-02-09"
+  },
+  {
+    id: 4,
+    title:  "средне",
+    value: 3,
+    status: "old",
+    createdAt: "2026-02-03"
+  }
+];
+function findItemById(id) {
+  return testItems.find(item => item.id === id) || null;
+}
+const foundItem = findItemById(3);
+console.log("Найденный объект (id = 3):", foundItem);
+D2
+const testItems = [
+   {
+id: 1,
+    title: "Плоховато",
+    value: 2,
+    status: "new",
+    createdAt: "2026-03-01"
+  },
+  {
+    id: 2,
+    title: "отлично",
+    value: 5,
+    status: "new",
+    createdAt: "2026-03-02"
+  },
+  {
+    id: 3,
+    title: 'Хорошее место',
+    value: 5,
+    status: "old",
+    createdAt: "2026-02-09"
+  },
+  {
+    id: 4,
+    title:  "средне",
+    value: 3,
+    status: "old",
+    createdAt: "2026-02-03"
+  }
+]
+const statistics = testItems.reduce((acc, item) => {
+  acc.totalCount += 1;
+  acc.sumValue += item.value;
+  return acc;
+}, { totalCount: 0, sumValue: 0 });
+
+console.log(statistics);
 
