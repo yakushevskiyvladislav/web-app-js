@@ -9,3 +9,6 @@ const reviews = [
   { id: 8, text: "Рекомендую", value: 5, status: "new", createdAt: "2026-03-17"},
   { id: 9, text: "Отвратительное обслуживание", value: 2, status: "new", createdAt: "2026-03-14"}
 ];
+
+let nextId = reviews.length + 1;
+export { reviews, nextId };
