@@ -11,4 +11,5 @@ const reviews = [
 ];
 
 let nextId = reviews.length + 1;
-export { reviews, nextId };
+window.reviews = reviews;
+window.nextId = nextId;
