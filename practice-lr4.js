@@ -174,6 +174,64 @@ console.log('2 — объект с ошибками:');
 console.log('Входные данные:', invalidRecord);
 console.log('Ошибки:', collectErrors(invalidRecord));
 
+D2
+function isValidTitle(title) {
+  return typeof title === 'string' && title.length > 0 && title.length <= 100;
+}
+function isValidValue(value) {
+  return typeof value === 'number' && !isNaN(value) && isFinite(value);
+}
+function isValidStatus(status) {
+  const validStatuses = ['active', 'inactive'];
+  return validStatuses.includes(status);
+}
+function isValidDate(dateString) {
+  if (typeof dateString !== 'string') return false;
+  const date = new Date(dateString);
+  return !isNaN(date.getTime()) && dateString === date.toISOString();
+}
+function collectErrors(record) {
+  const errors = [];
+
+  if (!isValidTitle(record.title)) {
+    errors.push('title должен быть непустой строкой длиной до 100 символов');
+  }
+
+  if (!isValidValue(record.value)) {
+    errors.push('value должен быть корректным числом');
+  }
+
+  if (!isValidStatus(record.status)) {
+    errors.push(`status должен быть одним из: active, inactive`);
+  }
+
+  if (!isValidDate(record.createdAt)) {
+    errors.push('createdAt должен быть датой в формате ISO');
+  }
+
+  return errors;
+}
+const validRecord = {
+  title: 'Корректный заголовок',
+  value: 42,
+  status: 'active',
+  createdAt: '2026-01-01T12:30:00.000Z'
+};
+
+console.log('1 — валидный объект:');
+console.log('Входные данные:', validRecord);
+console.log('Ошибки:', collectErrors(validRecord));
+console.log('---');
+
+const invalidRecord = {
+  title: '',
+  value: NaN,
+  status: 'unknown',
+  createdAt: 'не дата'
+};
+console.log('2 — объект с ошибками:');
+console.log('Входные данные:', invalidRecord);
+console.log('Ошибки:', collectErrors(invalidRecord));
 
 E1
 
@@ -191,34 +249,23 @@ await delay(500);
 }
 demonstrateDelay();
 
+E1
+
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+
+async function demonstrateDelay() {
+  console.log("Начало выполнения, ждём 500 мс...");
+ 
+await delay(500);
+  console.log("done");
+}
+demonstrateDelay();
 
 E2
-
-F1
-function tryParseJson(text) {
-  try {
-    const data = JSON.parse(text);
-    return { ok: true, data };
-  } catch (error) {
-    return {
-      ok: false,
-      error: error.message
-    };
-  }
-}
-const validJson = '{"a":1}';
-console.log('1. Корректный JSON:');
-console.log('Входные данные:', validJson);
-console.log('Результат:', tryParseJson(validJson));
-console.log('---');
-
-const invalidJson = '{a:1}';
-console.log('2. Некорректный JSON:');
-console.log('Входные данные:', invalidJson);
-console.log('Результат:', tryParseJson(invalidJson));
-
-
-F1
 async function safeFetchJson(url) {
   let resp;
   try {
@@ -276,6 +323,54 @@ async function demonstrateSafeFetch() {
   console.log(httpErrorResult);
 }
 demonstrateSafeFetch();
+
+F1
+function tryParseJson(text) {
+  try {
+    const data = JSON.parse(text);
+    return { ok: true, data };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error.message
+    };
+  }
+}
+const validJson = '{"a":1}';
+console.log('1. Корректный JSON:');
+console.log('Входные данные:', validJson);
+console.log('Результат:', tryParseJson(validJson));
+console.log('---');
+
+const invalidJson = '{a:1}';
+console.log('2. Некорректный JSON:');
+console.log('Входные данные:', invalidJson);
+console.log('Результат:', tryParseJson(invalidJson));
+
+
+F1
+function tryParseJson(text) {
+  try {
+    const data = JSON.parse(text);
+    return { ok: true, data };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error.message
+    };
+  }
+}
+const validJson = '{"a":1}';
+console.log('1. Корректный JSON:');
+console.log('Входные данные:', validJson);
+console.log('Результат:', tryParseJson(validJson));
+console.log('---');
+
+const invalidJson = '{a:1}';
+console.log('2. Некорректный JSON:');
+console.log('Входные данные:', invalidJson);
+console.log('Результат:', tryParseJson(invalidJson));
+
 
 
 F2
