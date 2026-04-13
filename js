@@ -157,7 +157,9 @@ function getZone(process) {
 function renderTable() {
   const tbody = document.getElementById('table-body');
   tbody.innerHTML = '';  
-  
+
+const countElement = document.getElementById('process-count');
+  countElement.textContent = getFilteredProcesses().length;
 
  getFilteredProcesses().forEach(function(process){
     const op = calcOperational(process).toFixed(2);
