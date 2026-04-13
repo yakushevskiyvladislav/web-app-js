@@ -10,7 +10,18 @@
 
     <section>
         <h2>Создание отзыва</h2>
-        <p>Форма будет реализована в следующих лабораторных работах</p>
+        <form id="recordForm">
+            <input id="titleInput" name="title" placeholder="Текст отзыва" />
+            <input id="valueInput" name="value" placeholder="Рейтинг (0–1000000)" />
+            <input id="createdAtInput" name="createdAt" placeholder="YYYY-MM-DD" />
+            <select id="statusInput" name="status">
+                <option value="new">new</option>
+                <option value="old">old</option>
+            </select>
+            <button type="submit">Сохранить</button>
+        </form>
+        <div id="formErrors"></div>
+        <button id="loadExternalData">Загрузка внешних записей</button>
     </section>
 
     <section id="controls">
